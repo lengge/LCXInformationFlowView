@@ -1,0 +1,23 @@
+PODS:
+  - LCXInformationFlowView (0.1.0)
+  - Masonry (1.1.0)
+
+DEPENDENCIES:
+  - LCXInformationFlowView (from `../`)
+  - Masonry
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+
+EXTERNAL SOURCES:
+  LCXInformationFlowView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LCXInformationFlowView: 7f1e29409ac76d9fc2e9b845312784991af4b41d
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+
+PODFILE CHECKSUM: 89d968cb1d62188b19975afa8326905a585a4a75
+
+COCOAPODS: 1.11.2

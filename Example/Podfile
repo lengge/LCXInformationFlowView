@@ -4,6 +4,8 @@ platform :ios, '10.0'
 
 target 'LCXInformationFlowView_Example' do
   pod 'LCXInformationFlowView', :path => '../'
+  
+  pod 'Masonry'
 
   target 'LCXInformationFlowView_Tests' do
     inherit! :search_paths

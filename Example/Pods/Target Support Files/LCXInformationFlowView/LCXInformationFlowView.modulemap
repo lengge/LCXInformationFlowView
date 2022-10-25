@@ -1,0 +1,6 @@
+framework module LCXInformationFlowView {
+  umbrella header "LCXInformationFlowView-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_LCXInformationFlowView_Tests {
+  umbrella header "Pods-LCXInformationFlowView_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
