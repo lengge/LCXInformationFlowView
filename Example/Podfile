@@ -6,6 +6,7 @@ target 'LCXInformationFlowView_Example' do
   pod 'LCXInformationFlowView', :path => '../'
   
   pod 'Masonry'
+  pod 'MJRefresh'
 
   target 'LCXInformationFlowView_Tests' do
     inherit! :search_paths

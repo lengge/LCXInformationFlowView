@@ -86,6 +86,21 @@
     [self.itemViews.firstObject setGradientLayerHidden:hidden];
 }
 
+- (CGPoint)findFinalContentOffset {
+    CGFloat offsetX = self.scrollView.contentOffset.x;
+    CGFloat maxOffsetX = self.scrollView.contentSize.width - self.scrollView.frame.size.width;
+    if (offsetX <= 0 || offsetX >= maxOffsetX) return self.scrollView.contentOffset;
+    CGFloat firstItemViewWidth = [self.itemViews firstObject].frame.size.width;
+    CGFloat virtualOffsetX = offsetX + firstItemViewWidth;
+    for (LCXInformationFlowItemView *itemView in self.itemViews) {
+        if (virtualOffsetX > CGRectGetMinX(itemView.frame) && virtualOffsetX < CGRectGetMaxX(itemView.frame)) {
+            CGFloat needOffsetX = (virtualOffsetX > CGRectGetMidX(itemView.frame) ? CGRectGetMaxX(itemView.frame) : CGRectGetMinX(itemView.frame)) - firstItemViewWidth;
+            return CGPointMake(needOffsetX, 0);
+        }
+    }
+    return self.scrollView.contentOffset;
+}
+
 #pragma mark - Event
 
 #pragma mark - Getter/Setter

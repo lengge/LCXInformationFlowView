@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @required
 - (NSInteger)flowCellNumberOfColumns:(LCXInformationFlowCell *)flowCell;
-
 - (LCXInformationFlowItemView *)flowCell:(LCXInformationFlowCell *)flowCell itemViewForRow:(NSInteger)row column:(NSInteger)column;
 
 @end
@@ -24,9 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol LCXInformationFlowCellDelegate <NSObject>
 
 - (CGFloat)flowCell:(LCXInformationFlowCell *)flowCell widthForColumn:(NSInteger)column;
-
 - (CGFloat)heightOfCell:(LCXInformationFlowCell *)flowCell atRow:(NSInteger)row;
-
 - (void)flowCell:(LCXInformationFlowCell *)flowCell removeItemView:(LCXInformationFlowItemView *)itemView;
 
 @end
@@ -37,12 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<LCXInformationFlowCellDelegate> delegate;
 
 + (NSString *)pb_reusedIdentifier;
-
 - (void)reloadDataForRow:(NSInteger)row contentOffset:(CGPoint)contentOffset;
-
 - (void)setScrollViewContentOffset:(CGPoint)contentOffset;
-
 - (void)setFirstItemViewGradientLayerHidden:(BOOL)hidden;
+- (CGPoint)findFinalContentOffset;
 
 @end
 

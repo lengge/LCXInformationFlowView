@@ -10,6 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface LCXInformationFlowTableView : UITableView
+
+@end
+
 @class LCXInformationFlowView;
 
 @protocol LCXInformationFlowViewDataSource <NSObject>
@@ -33,8 +37,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LCXInformationFlowView : UIView
 
+/// 可添加上拉和下拉刷新，不要改变tableView的delegate和dataSource
+@property (nonatomic, strong, readonly) LCXInformationFlowTableView *tableView;
+
 @property (nonatomic, weak) id<LCXInformationFlowViewDataSource> dataSource;
 @property (nonatomic, weak) id<LCXInformationFlowViewDelegate> delegate;
+
+@property (nonatomic, strong, nullable) UIView *headerView;
+@property (nonatomic, strong, nullable) UIView *footerView;
+
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style NS_DESIGNATED_INITIALIZER;
 
 - (void)registerClass:(nullable Class)cellClass forItemViewReuseIdentifier:(NSString *)identifier;
 - (nullable __kindof LCXInformationFlowItemView *)dequeueReusableItemViewWithIdentifier:(NSString *)identifier;

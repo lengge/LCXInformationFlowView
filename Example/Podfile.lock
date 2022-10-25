@@ -1,14 +1,17 @@
 PODS:
   - LCXInformationFlowView (0.1.0)
   - Masonry (1.1.0)
+  - MJRefresh (3.7.5)
 
 DEPENDENCIES:
   - LCXInformationFlowView (from `../`)
   - Masonry
+  - MJRefresh
 
 SPEC REPOS:
   trunk:
     - Masonry
+    - MJRefresh
 
 EXTERNAL SOURCES:
   LCXInformationFlowView:
@@ -17,7 +20,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   LCXInformationFlowView: 7f1e29409ac76d9fc2e9b845312784991af4b41d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
 
-PODFILE CHECKSUM: 89d968cb1d62188b19975afa8326905a585a4a75
+PODFILE CHECKSUM: 34a762ddd71981c2be1c7cdc9a3798a41e1551fd
 
 COCOAPODS: 1.11.2

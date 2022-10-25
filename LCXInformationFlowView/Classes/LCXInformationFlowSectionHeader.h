@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @required
 - (NSInteger)headerNumberOfColumns:(LCXInformationFlowSectionHeader *)header;
-
 - (LCXInformationFlowItemView *)header:(LCXInformationFlowSectionHeader *)header itemViewForColumn:(NSInteger)column;
 
 @end
@@ -24,9 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol LCXInformationFlowSectionHeaderDelegate <NSObject>
 
 - (CGFloat)header:(LCXInformationFlowSectionHeader *)header widthForColumn:(NSInteger)column;
-
 - (CGFloat)heightOfHeader:(LCXInformationFlowSectionHeader *)header;
-
 - (void)header:(LCXInformationFlowSectionHeader *)header removeItemView:(LCXInformationFlowItemView *)itemView;
 
 @end
@@ -38,13 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<LCXInformationFlowSectionHeaderDelegate> delegate;
 
 + (NSString *)pb_reusedIdentifier;
-
 - (void)reloadDataWithContentOffset:(CGPoint)contentOffset;
-
 - (void)setScrollViewContentOffset:(CGPoint)contentOffset;
-
 - (void)setFirstItemViewGradientLayerHidden:(BOOL)hidden;
-
 - (CGPoint)findFinalContentOffset;
 
 @end

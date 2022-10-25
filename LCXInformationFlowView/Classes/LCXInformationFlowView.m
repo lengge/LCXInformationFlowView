@@ -9,6 +9,31 @@
 #import "LCXInformationFlowCell.h"
 #import "LCXInformationFlowSectionHeader.h"
 
+@interface LCXInformationFlowTableView ()
+- (void)lcx_setDelegate:(id<UITableViewDelegate>)delegate;
+- (void)lcx_setDataSource:(id<UITableViewDataSource>)dataSource;
+@end
+
+@implementation LCXInformationFlowTableView
+
+- (void)setDelegate:(id<UITableViewDelegate>)delegate {
+    
+}
+
+- (void)setDataSource:(id<UITableViewDataSource>)dataSource {
+    
+}
+
+- (void)lcx_setDelegate:(id<UITableViewDelegate>)delegate {
+    [super setDelegate:delegate];
+}
+
+- (void)lcx_setDataSource:(id<UITableViewDataSource>)dataSource {
+    [super setDataSource:dataSource];
+}
+
+@end
+
 @interface LCXMoreGestureRecognitionScrollView : UIScrollView <UIGestureRecognizerDelegate>
 
 @end
@@ -37,24 +62,34 @@ LCXInformationFlowCellDataSource,
 LCXInformationFlowSectionHeaderDelegate,
 LCXInformationFlowSectionHeaderDataSource
 >
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) LCXInformationFlowTableView *tableView;
 @property (nonatomic, strong) LCXMoreGestureRecognitionScrollView *scrollView;
 @property (nonatomic, strong) NSMutableDictionary<NSString *, NSMutableArray<LCXInformationFlowItemView *> *> *reusableItemViewDict;
 @property (nonatomic, strong) NSMutableDictionary<NSString *, Class> *reuseClassDict;
 @property (nonatomic, assign) CGPoint horizontalContentOffset;
+@property (nonatomic, assign) UITableViewStyle tableViewStyle;
 @end
 
 @implementation LCXInformationFlowView
 
 #pragma mark - Life Cycle
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     if (self = [super initWithFrame:frame]) {
         _horizontalContentOffset = CGPointZero;
+        _tableViewStyle = style;
         [self p_initSubviews];
         [self p_initLayouts];
     }
     return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    return [self initWithFrame:frame style:UITableViewStylePlain];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    return [self initWithFrame:CGRectZero style:UITableViewStylePlain];
 }
 
 #pragma mark - Private
@@ -152,6 +187,14 @@ LCXInformationFlowSectionHeaderDataSource
     return 44;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -184,9 +227,15 @@ LCXInformationFlowSectionHeaderDataSource
         BOOL dragToDragStop = scrollView.tracking && !scrollView.dragging && !scrollView.decelerating;
         if (scrollView == self.scrollView && dragToDragStop) {
             LCXInformationFlowSectionHeader *header = (LCXInformationFlowSectionHeader *)[self.tableView headerViewForSection:0];
-            [header setFirstItemViewGradientLayerHidden:YES];
-            CGPoint findFinalContentOffset = [header findFinalContentOffset];
-            [self.scrollView setContentOffset:findFinalContentOffset animated:YES];
+            if (header) {
+                [header setFirstItemViewGradientLayerHidden:YES];
+                CGPoint findFinalContentOffset = [header findFinalContentOffset];
+                [self.scrollView setContentOffset:findFinalContentOffset animated:YES];
+            } else {
+                LCXInformationFlowCell *cell = [[self.tableView visibleCells] firstObject];
+                CGPoint findFinalContentOffset = [cell findFinalContentOffset];
+                [self.scrollView setContentOffset:findFinalContentOffset animated:YES];
+            }
             
             NSArray *visibleCells = [self.tableView visibleCells];
             for (LCXInformationFlowCell *cell in visibleCells) {
@@ -204,9 +253,15 @@ LCXInformationFlowSectionHeaderDataSource
     BOOL scrollToScrollStop = !scrollView.tracking && !scrollView.dragging && !scrollView.decelerating;
     if (scrollView == self.scrollView && scrollToScrollStop) {
         LCXInformationFlowSectionHeader *header = (LCXInformationFlowSectionHeader *)[self.tableView headerViewForSection:0];
-        [header setFirstItemViewGradientLayerHidden:YES];
-        CGPoint findFinalContentOffset = [header findFinalContentOffset];
-        [self.scrollView setContentOffset:findFinalContentOffset animated:YES];
+        if (header) {
+            [header setFirstItemViewGradientLayerHidden:YES];
+            CGPoint findFinalContentOffset = [header findFinalContentOffset];
+            [self.scrollView setContentOffset:findFinalContentOffset animated:YES];
+        } else {
+            LCXInformationFlowCell *cell = [[self.tableView visibleCells] firstObject];
+            CGPoint findFinalContentOffset = [cell findFinalContentOffset];
+            [self.scrollView setContentOffset:findFinalContentOffset animated:YES];
+        }
         
         NSArray *visibleCells = [self.tableView visibleCells];
         for (LCXInformationFlowCell *cell in visibleCells) {
@@ -291,13 +346,18 @@ LCXInformationFlowSectionHeaderDataSource
 
 #pragma mark - Getter/Setter
 
-- (UITableView *)tableView {
+- (LCXInformationFlowTableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView = [[LCXInformationFlowTableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
         _tableView.backgroundColor = [UIColor whiteColor];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
         _tableView.separatorInset = UIEdgeInsetsZero;
+        if (@available(iOS 15.0, *)) {
+            _tableView.sectionHeaderTopPadding = 0;
+        } else {
+            // Fallback on earlier versions
+        }
+        [_tableView lcx_setDelegate:self];
+        [_tableView lcx_setDataSource:self];
         [_tableView registerClass:[LCXInformationFlowCell class] forCellReuseIdentifier:[LCXInformationFlowCell pb_reusedIdentifier]];
         [_tableView registerClass:[LCXInformationFlowSectionHeader class] forHeaderFooterViewReuseIdentifier:[LCXInformationFlowSectionHeader pb_reusedIdentifier]];
     }
@@ -326,6 +386,18 @@ LCXInformationFlowSectionHeaderDataSource
         _reuseClassDict = [NSMutableDictionary dictionary];
     }
     return _reuseClassDict;
+}
+
+- (void)setHeaderView:(UIView *)headerView {
+    _headerView = headerView;
+    self.tableView.tableHeaderView = headerView;
+    [self reloadData];
+}
+
+- (void)setFooterView:(UIView *)footerView {
+    _footerView = footerView;
+    self.tableView.tableFooterView = footerView;
+    [self reloadData];
 }
 
 @end
