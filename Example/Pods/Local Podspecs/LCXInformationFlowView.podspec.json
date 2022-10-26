@@ -1,19 +1,19 @@
 {
   "name": "LCXInformationFlowView",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "summary": "A short description of LCXInformationFlowView.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/传鑫 冷/LCXInformationFlowView",
+  "homepage": "https://github.com/lengge/LCXInformationFlowView",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "传鑫 冷": "chuanxin.leng@payby.com"
+    "chuanxin.leng": "chuanxin.leng@payby.com"
   },
   "source": {
-    "git": "https://github.com/传鑫 冷/LCXInformationFlowView.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/lengge/LCXInformationFlowView.git",
+    "tag": "0.0.1"
   },
   "platforms": {
     "ios": "10.0"

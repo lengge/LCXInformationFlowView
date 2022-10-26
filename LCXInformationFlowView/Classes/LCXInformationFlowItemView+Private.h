@@ -5,7 +5,7 @@
 //  Created by lengchuanxin on 2022/10/26.
 //
 
-#import <UIKit/UIKit.h>
+#import "LCXInformationFlowItemView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

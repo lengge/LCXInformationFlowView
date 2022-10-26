@@ -11,6 +11,7 @@
 #endif
 
 #import "LCXInformationFlowCell.h"
+#import "LCXInformationFlowItemView+Private.h"
 #import "LCXInformationFlowItemView.h"
 #import "LCXInformationFlowSectionHeader.h"
 #import "LCXInformationFlowView.h"
