@@ -6,11 +6,7 @@
 //
 
 #import "LCXInformationFlowItemView.h"
-
-@interface LCXInformationFlowItemView ()
-@property (nonatomic, copy) NSString *reuseIdentifier;
-@property (nonatomic, strong) CAGradientLayer *gradientLayer;
-@end
+#import "LCXInformationFlowItemView+Private.h"
 
 @implementation LCXInformationFlowItemView
 
@@ -29,6 +25,8 @@
         self.backgroundColor = [UIColor whiteColor];
         _reuseIdentifier = reuseIdentifier;
         [self.layer addSublayer:self.gradientLayer];
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureAction)];
+        [self addGestureRecognizer:tapGestureRecognizer];
     }
     return self;
 }
@@ -51,6 +49,12 @@
 }
 
 #pragma mark - Event
+
+- (void)tapGestureAction {
+    if (self.tapGestureActionBlock) {
+        self.tapGestureActionBlock();
+    }
+}
 
 #pragma mark - Getter/Setter
 

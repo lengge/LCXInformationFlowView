@@ -8,6 +8,7 @@
 #import "LCXInformationFlowView.h"
 #import "LCXInformationFlowCell.h"
 #import "LCXInformationFlowSectionHeader.h"
+#import "LCXInformationFlowItemView+Private.h"
 
 @interface LCXInformationFlowTableView ()
 - (void)lcx_setDelegate:(id<UITableViewDelegate>)delegate;
@@ -34,24 +35,6 @@
 
 @end
 
-@interface LCXMoreGestureRecognitionScrollView : UIScrollView <UIGestureRecognizerDelegate>
-
-@end
-
-@implementation LCXMoreGestureRecognitionScrollView
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] &&
-        [otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
-        UITableView *tableView = (UITableView *)otherGestureRecognizer.view;
-        BOOL scrollToScrollStop = !tableView.tracking && !tableView.dragging && !tableView.decelerating;
-        return scrollToScrollStop;
-    }
-    return NO;
-}
-
-@end
-
 @interface LCXInformationFlowView ()
 <
 UITableViewDelegate,
@@ -63,7 +46,7 @@ LCXInformationFlowSectionHeaderDelegate,
 LCXInformationFlowSectionHeaderDataSource
 >
 @property (nonatomic, strong) LCXInformationFlowTableView *tableView;
-@property (nonatomic, strong) LCXMoreGestureRecognitionScrollView *scrollView;
+@property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableDictionary<NSString *, NSMutableArray<LCXInformationFlowItemView *> *> *reusableItemViewDict;
 @property (nonatomic, strong) NSMutableDictionary<NSString *, Class> *reuseClassDict;
 @property (nonatomic, assign) CGPoint horizontalContentOffset;
@@ -95,8 +78,9 @@ LCXInformationFlowSectionHeaderDataSource
 #pragma mark - Private
 
 - (void)p_initSubviews {
+    [self addSubview:self.scrollView];
     [self addSubview:self.tableView];
-    [self.tableView addSubview:self.scrollView];
+    [self.tableView addGestureRecognizer:self.scrollView.panGestureRecognizer];
 }
 
 - (void)p_initLayouts {
@@ -281,7 +265,14 @@ LCXInformationFlowSectionHeaderDataSource
 
 - (LCXInformationFlowItemView *)flowCell:(LCXInformationFlowCell *)flowCell itemViewForRow:(NSInteger)row column:(NSInteger)column {
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(flowView:itemViewForRow:column:)]) {
-        return [self.dataSource flowView:self itemViewForRow:row column:column];
+        LCXInformationFlowItemView *itemView = [self.dataSource flowView:self itemViewForRow:row column:column];
+        __weak typeof(self) weakSelf = self;
+        itemView.tapGestureActionBlock = ^{
+            if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(flowView:didSelectItemAtRow:column:)]) {
+                [weakSelf.delegate flowView:self didSelectItemAtRow:row column:column];
+            }
+        };
+        return itemView;
     }
     return [LCXInformationFlowItemView new];
 }
@@ -318,7 +309,14 @@ LCXInformationFlowSectionHeaderDataSource
 
 - (LCXInformationFlowItemView *)header:(LCXInformationFlowSectionHeader *)header itemViewForColumn:(NSInteger)column {
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(flowView:headerItemViewForColumn:)]) {
-        return [self.dataSource flowView:self headerItemViewForColumn:column];
+        LCXInformationFlowItemView *itemView = [self.dataSource flowView:self headerItemViewForColumn:column];
+        __weak typeof(self) weakSelf = self;
+        itemView.tapGestureActionBlock = ^{
+            if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(flowView:didSelectHeaderItemAtColumn:)]) {
+                [weakSelf.delegate flowView:self didSelectHeaderItemAtColumn:column];
+            }
+        };
+        return itemView;
     }
     return [LCXInformationFlowItemView new];
 }
@@ -364,9 +362,9 @@ LCXInformationFlowSectionHeaderDataSource
     return _tableView;
 }
 
-- (LCXMoreGestureRecognitionScrollView *)scrollView {
+- (UIScrollView *)scrollView {
     if (!_scrollView) {
-        _scrollView = [[LCXMoreGestureRecognitionScrollView alloc] initWithFrame:CGRectZero];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.delegate = self;

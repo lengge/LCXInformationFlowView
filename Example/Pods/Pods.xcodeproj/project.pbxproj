@@ -49,6 +49,7 @@
 		68A3CE66B71D16C40DDDB0179446165D /* Pods-LCXInformationFlowView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B615317595A7FA2EB1E7207EA6434DC /* Pods-LCXInformationFlowView_Tests-dummy.m */; };
 		69359A20750375B3BF91D193B60C406D /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E3FCE06088598BF7E4BB52C2418BC4B /* MJRefreshFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D7EE0E37B82EC69E80A480DA3F564C6 /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 616A1AA81CEFEC22DD79740B2BBE5618 /* MJRefreshConfig.m */; };
+		6ED8B3F32909326A0068FFE6 /* LCXInformationFlowItemView+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 6ED8B3F12909326A0068FFE6 /* LCXInformationFlowItemView+Private.h */; };
 		715AB2C777F6FCAB5EE0C667A909B698 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3FECEFDC6154D4B94300A48051C83C /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		752B36F5BBCF8DED01BF1E444D975546 /* UICollectionViewLayout+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 012D1E0069FCD598FE369C7A45F9C93F /* UICollectionViewLayout+MJRefresh.m */; };
 		78251F42EB680FB72F040A1986279CD2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
@@ -181,7 +182,7 @@
 		5068594904BFF131B0F8D335440E71B1 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
 		510D836BD292C24C662FB8E79632BDCC /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		5146488770D9E2C194CA78F2DA9D94BB /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoStateFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
-		534ECD0AA519CED328091417432D8AFF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		534ECD0AA519CED328091417432D8AFF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		54E6A9EBF8732D84BA6CDBD45C2534BD /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		56D368C6476226CC9AB566A9576F8F0D /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifHeader.m; path = MJRefresh/Custom/Header/MJRefreshGifHeader.m; sourceTree = "<group>"; };
 		5769D423B2918B8B53C570DDFFCC8B8A /* Pods-LCXInformationFlowView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LCXInformationFlowView_Example-frameworks.sh"; sourceTree = "<group>"; };
@@ -196,6 +197,7 @@
 		6B609B3DA4B53861CF84ACEAA282ED2F /* LCXInformationFlowItemView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LCXInformationFlowItemView.h; path = LCXInformationFlowView/Classes/LCXInformationFlowItemView.h; sourceTree = "<group>"; };
 		6C7CCADB3D31168BA65C26E3B0E56BA0 /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		6D80365BD4BE3CC3E9875EA357ED5594 /* LCXInformationFlowSectionHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LCXInformationFlowSectionHeader.m; path = LCXInformationFlowView/Classes/LCXInformationFlowSectionHeader.m; sourceTree = "<group>"; };
+		6ED8B3F12909326A0068FFE6 /* LCXInformationFlowItemView+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "LCXInformationFlowItemView+Private.h"; path = "LCXInformationFlowView/Classes/LCXInformationFlowItemView+Private.h"; sourceTree = "<group>"; };
 		712C3CBF3D0B656695B36D47D59C5929 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackFooter.h; path = MJRefresh/Base/MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		71BCB7B0D02E118156D4A15D2827BACD /* LCXInformationFlowView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LCXInformationFlowView-umbrella.h"; sourceTree = "<group>"; };
 		767D533524A51B83DA17AFF0B863AD5A /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
@@ -203,12 +205,12 @@
 		7875B25D45EEBFF3F78974486F951081 /* MJRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.release.xcconfig; sourceTree = "<group>"; };
 		7C57028F9616D28B20A6D47F45C596CF /* Pods-LCXInformationFlowView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LCXInformationFlowView_Tests-umbrella.h"; sourceTree = "<group>"; };
 		7E01DC6B779357CA47829869EBFA8E60 /* LCXInformationFlowView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LCXInformationFlowView.debug.xcconfig; sourceTree = "<group>"; };
-		829D57C28AB908BADDEC5CED837A62E2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		829D57C28AB908BADDEC5CED837A62E2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		82E0ED4E20497DA334FFF076F49D9E65 /* Pods-LCXInformationFlowView_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LCXInformationFlowView_Tests-Info.plist"; sourceTree = "<group>"; };
 		84586E0F2D9EE184A048447F6FDBDBA9 /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
 		858C4F76C6559D1C7FB3B8FE18718631 /* MJRefreshHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeader.h; path = MJRefresh/Base/MJRefreshHeader.h; sourceTree = "<group>"; };
 		85F00ED77D7497B92205FD4CB37A0079 /* Pods-LCXInformationFlowView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LCXInformationFlowView_Example-dummy.m"; sourceTree = "<group>"; };
-		870B7869F9194AF6A9AF2835EDEA0973 /* LCXInformationFlowView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = LCXInformationFlowView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		870B7869F9194AF6A9AF2835EDEA0973 /* LCXInformationFlowView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = LCXInformationFlowView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8B1539C4F2F0D68A89FB3FCE157AB1CB /* Pods-LCXInformationFlowView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LCXInformationFlowView_Example.modulemap"; sourceTree = "<group>"; };
 		8CC85FCBC4B4511851CB88A7446943C5 /* LCXInformationFlowView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LCXInformationFlowView-Info.plist"; sourceTree = "<group>"; };
 		8E28440A927DBC8B887761DD93E1D53B /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
@@ -220,7 +222,7 @@
 		93DA3AE927BDCF61999427DAB15592E2 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		947BD5C887F4113E437239C6D1B20CC4 /* Pods-LCXInformationFlowView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LCXInformationFlowView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9CD3C410C5BB86EB4674FB79764109BA /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E3FCE06088598BF7E4BB52C2418BC4B /* MJRefreshFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshFooter.h; path = MJRefresh/Base/MJRefreshFooter.h; sourceTree = "<group>"; };
 		A0335855F8CBB6543236C580CD375780 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
 		A8545991EC5A7BDF0A1EC7BF22D031BC /* LCXInformationFlowSectionHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LCXInformationFlowSectionHeader.h; path = LCXInformationFlowView/Classes/LCXInformationFlowSectionHeader.h; sourceTree = "<group>"; };
@@ -457,7 +459,6 @@
 				9BCA223FBB8D12968898522C71B4D87D /* Resources */,
 				413B871DD5DE859BAFBCB6D829C459AB /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -510,7 +511,6 @@
 				9CD3C410C5BB86EB4674FB79764109BA /* ViewController+MASAdditions.m */,
 				106950F7A81571224921C59D527C0E16 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -573,6 +573,7 @@
 				A9565D7AD8B489B1A16AF5FDCFFAE190 /* LCXInformationFlowCell.m */,
 				6B609B3DA4B53861CF84ACEAA282ED2F /* LCXInformationFlowItemView.h */,
 				1781F1507B1CF8234CD4EAD2F1970739 /* LCXInformationFlowItemView.m */,
+				6ED8B3F12909326A0068FFE6 /* LCXInformationFlowItemView+Private.h */,
 				A8545991EC5A7BDF0A1EC7BF22D031BC /* LCXInformationFlowSectionHeader.h */,
 				6D80365BD4BE3CC3E9875EA357ED5594 /* LCXInformationFlowSectionHeader.m */,
 				C4DC04D2EAA2CF7F38EEA4870CB38802 /* LCXInformationFlowView.h */,
@@ -611,6 +612,7 @@
 				42103DE1FEC63277F5421D39C41C7860 /* LCXInformationFlowCell.h in Headers */,
 				63F66A9B9C4A786A2BAB20D5BC377A84 /* LCXInformationFlowItemView.h in Headers */,
 				9942355AB71DEE19C4B3B2E1319A9686 /* LCXInformationFlowSectionHeader.h in Headers */,
+				6ED8B3F32909326A0068FFE6 /* LCXInformationFlowItemView+Private.h in Headers */,
 				65035C81D9C3DB4CFF35F420D72BBA5E /* LCXInformationFlowView.h in Headers */,
 				3146ADBE724B340AF7AFAF37AA5F3262 /* LCXInformationFlowView-umbrella.h in Headers */,
 			);
@@ -1170,8 +1172,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

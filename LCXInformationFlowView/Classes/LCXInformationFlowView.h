@@ -33,6 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGFloat)flowView:(LCXInformationFlowView *)flowView widthForColumn:(NSInteger)column;
 - (CGFloat)heightOfHeaderForFlowView:(LCXInformationFlowView *)flowView;
 
+@optional
+- (void)flowView:(LCXInformationFlowView *)flowView didSelectItemAtRow:(NSInteger)row column:(NSInteger)column;
+- (void)flowView:(LCXInformationFlowView *)flowView didSelectHeaderItemAtColumn:(NSInteger)column;
+
 @end
 
 @interface LCXInformationFlowView : UIView

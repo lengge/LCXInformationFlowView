@@ -116,6 +116,14 @@
     return 35;
 }
 
+- (void)flowView:(LCXInformationFlowView *)flowView didSelectHeaderItemAtColumn:(NSInteger)column {
+    NSLog(@"%s === column : %@", __func__, @(column));
+}
+
+- (void)flowView:(LCXInformationFlowView *)flowView didSelectItemAtRow:(NSInteger)row column:(NSInteger)column {
+    NSLog(@"%s === row : %@ column : %@", __func__, @(row), @(column));
+}
+
 - (LCXInformationFlowView *)flowView {
     if (!_flowView) {
         _flowView = [[LCXInformationFlowView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
