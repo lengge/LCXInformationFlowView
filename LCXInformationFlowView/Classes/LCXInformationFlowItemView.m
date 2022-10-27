@@ -6,7 +6,11 @@
 //
 
 #import "LCXInformationFlowItemView.h"
-#import "LCXInformationFlowItemView+Private.h"
+
+@interface LCXInformationFlowItemView ()
+@property (nonatomic, copy) NSString *reuseIdentifier;
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
+@end
 
 @implementation LCXInformationFlowItemView
 
@@ -51,8 +55,8 @@
 #pragma mark - Event
 
 - (void)tapGestureAction {
-    if (self.tapGestureActionBlock) {
-        self.tapGestureActionBlock();
+    if (_tapGestureActionBlock) {
+        _tapGestureActionBlock();
     }
 }
 

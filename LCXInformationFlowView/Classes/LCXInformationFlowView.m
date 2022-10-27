@@ -8,7 +8,6 @@
 #import "LCXInformationFlowView.h"
 #import "LCXInformationFlowCell.h"
 #import "LCXInformationFlowSectionHeader.h"
-#import "LCXInformationFlowItemView+Private.h"
 
 @interface LCXInformationFlowTableView ()
 - (void)lcx_setDelegate:(id<UITableViewDelegate>)delegate;
@@ -267,7 +266,7 @@ LCXInformationFlowSectionHeaderDataSource
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(flowView:itemViewForRow:column:)]) {
         LCXInformationFlowItemView *itemView = [self.dataSource flowView:self itemViewForRow:row column:column];
         __weak typeof(self) weakSelf = self;
-        itemView.tapGestureActionBlock = ^{
+        itemView->_tapGestureActionBlock = ^{
             if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(flowView:didSelectItemAtRow:column:)]) {
                 [weakSelf.delegate flowView:self didSelectItemAtRow:row column:column];
             }
@@ -311,7 +310,7 @@ LCXInformationFlowSectionHeaderDataSource
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(flowView:headerItemViewForColumn:)]) {
         LCXInformationFlowItemView *itemView = [self.dataSource flowView:self headerItemViewForColumn:column];
         __weak typeof(self) weakSelf = self;
-        itemView.tapGestureActionBlock = ^{
+        itemView->_tapGestureActionBlock = ^{
             if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(flowView:didSelectHeaderItemAtColumn:)]) {
                 [weakSelf.delegate flowView:self didSelectHeaderItemAtColumn:column];
             }

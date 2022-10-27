@@ -10,6 +10,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LCXInformationFlowItemView : UIView
+{
+@package
+    void(^_tapGestureActionBlock)(void);
+}
+
 @property (nonatomic, copy, readonly) NSString *reuseIdentifier;
 
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier NS_DESIGNATED_INITIALIZER;
