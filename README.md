@@ -1,10 +1,5 @@
 # LCXInformationFlowView
 
-[![CI Status](https://img.shields.io/travis/传鑫 冷/LCXInformationFlowView.svg?style=flat)](https://travis-ci.org/传鑫 冷/LCXInformationFlowView)
-[![Version](https://img.shields.io/cocoapods/v/LCXInformationFlowView.svg?style=flat)](https://cocoapods.org/pods/LCXInformationFlowView)
-[![License](https://img.shields.io/cocoapods/l/LCXInformationFlowView.svg?style=flat)](https://cocoapods.org/pods/LCXInformationFlowView)
-[![Platform](https://img.shields.io/cocoapods/p/LCXInformationFlowView.svg?style=flat)](https://cocoapods.org/pods/LCXInformationFlowView)
-
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
